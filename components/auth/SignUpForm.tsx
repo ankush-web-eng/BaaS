@@ -1,13 +1,16 @@
 'use client';
-import React from "react";
+import axios, { AxiosError } from "axios";
+import { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
+
+import { cn } from "@/lib/utils";
+import { ApiResponse } from "@/types/ApiResponse";
+import { useToast } from "@/hooks/use-toast";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
-import { cn } from "@/lib/utils";
-import axios from "axios";
-import { IconBrandGoogle } from "@tabler/icons-react";
-import { useToast } from "@/hooks/use-toast";
 import { RiLoader2Line } from "react-icons/ri";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 type SignupFormData = {
     firstname: string;
@@ -15,10 +18,15 @@ type SignupFormData = {
     password: string;
 };
 
+type VerifyFormData = {
+    verifyCode: string;
+}
+
 export function SignupForm() {
     const { register, handleSubmit, formState: { errors } } = useForm<SignupFormData>();
     const { toast } = useToast();
-    const [loading, setLoading] = React.useState(false);
+    const [loading, setLoading] = useState(false);
+    const [isVerify, setIsVerify] = useState(false);
 
     const onSubmit: SubmitHandler<SignupFormData> = async (data) => {
         setLoading(true);
@@ -28,20 +36,31 @@ export function SignupForm() {
             if (response.status === 201) {
                 toast({
                     title: "Success",
-                    description: "User created successfully!",
+                    description: response.data.message,
+                    duration: 2000,
                 });
             }
-            console.log(response.data);
+            localStorage.setItem('email', data.email);
+            setIsVerify(true);
         } catch (error) {
+            const axiosError = error as AxiosError<ApiResponse>;
+            const errorMessage = axiosError.response?.data.message;
+            ("There was a problem with your sign-up. Please try again.");
             console.error(error);
             toast({
-                title: "Error",
-                description: "Something went wrong",
+                title: "Sign Up Failed",
+                description: errorMessage,
+                variant: "destructive",
+                duration: 3000,
             });
         } finally {
             setLoading(false);
         }
     };
+
+    if (isVerify) {
+        return <VerifyForm />;
+    }
 
     return (
         <div className="min-h-screen flex justify-center items-center dark:bg-[#0f0a39]">
@@ -54,9 +73,9 @@ export function SignupForm() {
                     <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
                         <LabelInputContainer>
                             <Label htmlFor="firstname">First name</Label>
-                            <Input 
-                                id="firstname" 
-                                placeholder="Ankush" 
+                            <Input
+                                id="firstname"
+                                placeholder="Ankush"
                                 {...register("firstname", { required: true })}
                             />
                             {errors.firstname && <span className="text-red-500 text-sm">First name is required</span>}
@@ -65,10 +84,10 @@ export function SignupForm() {
 
                     <LabelInputContainer className="mb-4">
                         <Label htmlFor="email">Email Address</Label>
-                        <Input 
-                            id="email" 
-                            placeholder="ankushsingh.dev@gmail.com" 
-                            type="email" 
+                        <Input
+                            id="email"
+                            placeholder="ankushsingh.dev@gmail.com"
+                            type="email"
                             {...register("email", { required: true })}
                         />
                         {errors.email && <span className="text-red-500 text-sm">Email is required</span>}
@@ -76,10 +95,10 @@ export function SignupForm() {
 
                     <LabelInputContainer className="mb-4">
                         <Label htmlFor="password">Password</Label>
-                        <Input 
-                            id="password" 
-                            placeholder="••••••••" 
-                            type="password" 
+                        <Input
+                            id="password"
+                            placeholder="••••••••"
+                            type="password"
                             {...register("password", { required: true })}
                         />
                         {errors.password && <span className="text-red-500 text-sm">Password is required</span>}
@@ -89,23 +108,20 @@ export function SignupForm() {
                         className="bg-gradient-to-br relative group/btn from-black dark:from-zinc-900 dark:to-zinc-900 to-neutral-600 block dark:bg-zinc-800 w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset] "
                         type="submit"
                     >
-                        {loading ? <RiLoader2Line className="animate-spin" /> : "Sign up"}
+                        {loading ? (
+                            <span className="flex justify-center items-center">
+                                <RiLoader2Line className="mr-2 h-4 w-4 animate-spin" />
+                                Please wait
+                            </span>
+                        ) : (
+                            'Sign Up'
+                        )}
                         <BottomGradient />
                     </button>
 
                     <div className="bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent my-8 h-[1px] w-full" />
-
-                    <div className="flex flex-col space-y-4">
-                        <button
-                            className=" relative group/btn flex space-x-2 items-center justify-start px-4 w-full text-black rounded-md h-10 font-medium shadow-input bg-gray-50 dark:bg-zinc-900 dark:shadow-[0px_0px_1px_1px_var(--neutral-800)]"
-                            type="button"
-                        >
-                            <IconBrandGoogle className="h-4 w-4 text-neutral-800 dark:text-neutral-300" />
-                            <span className="text-neutral-700 dark:text-neutral-300 text-sm">
-                                Google
-                            </span>
-                            <BottomGradient />
-                        </button>
+                    <div className="flex w-full items-center justify-center mt-3">
+                        <Link href={'/signin'} className="text-slate-500 hover:text-slate-300">Already registered ? Signin here</Link>
                     </div>
                 </form>
             </div>
@@ -135,3 +151,82 @@ const LabelInputContainer = ({
         </div>
     );
 };
+
+const VerifyForm = () => {
+
+    const [loading, setlaoding] = useState<boolean>(false);
+    const { register, handleSubmit, formState: { errors } } = useForm<VerifyFormData>();
+    const { toast } = useToast();
+    const router = useRouter();
+
+    const onSubmit: SubmitHandler<VerifyFormData> = async (data) => {
+        setlaoding(true)
+        try {
+            const formdata = { ...data, email: localStorage.getItem('email') }
+            console.log(formdata);
+            const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/verify`, formdata)
+            if (response.status === 200) {
+                toast({
+                    title: "Success",
+                    description: response.data.message,
+                    duration: 2000
+                })
+            }
+            localStorage.removeItem('email');
+            router.replace('/login');
+        } catch (error) {
+            const axiosError = error as AxiosError<ApiResponse>
+            const errorMessage = axiosError.response?.data.message
+            toast({
+                title: "Verification Failed",
+                description: errorMessage,
+                variant: "destructive",
+                duration: 3000
+            })
+        } finally {
+            setlaoding(false);
+        }
+    }
+
+    return (
+        <div className="min-h-screen flex justify-center items-center dark:bg-[#0f0a39]">
+            <div className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-2xl bg-white dark:bg-black shadow-blue-950">
+                <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">
+                    Verify your email
+                </h2>
+
+                <form className="my-8" onSubmit={handleSubmit(onSubmit)}>
+                    <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
+                        <LabelInputContainer>
+                            <Label htmlFor="firstname">Verification code</Label>
+                            <Input
+                                id="firstname"
+                                placeholder={`Enter otp sent to ${localStorage.getItem('email')}`}
+                                {...register("verifyCode", { required: true })}
+                            />
+                            {errors.verifyCode && <span className="text-red-500 text-sm">Verification code is required</span>}
+                        </LabelInputContainer>
+                    </div>
+
+                    <button
+                        className="bg-gradient-to-br relative group/btn from-black dark:from-zinc-900 dark:to-zinc-900 to-neutral-600 block dark:bg-zinc-800 w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset] "
+                        type="submit"
+                    >
+                        {loading ? (
+                            <span className="flex justify-center items-center">
+                                <RiLoader2Line className="mr-2 h-4 w-4 animate-spin" />
+                                Please wait
+                            </span>
+                        ) : (
+                            'Verify'
+                        )}
+                        <BottomGradient />
+                    </button>
+
+                    <div className="bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent my-8 h-[1px] w-full" />
+
+                </form>
+            </div>
+        </div>
+    )
+}

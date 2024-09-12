@@ -4,6 +4,7 @@ import "@/styles/globals.css";
 
 import { ThemeProvider } from "@/context/ThemeProviderContext";
 import Navbar from "@/components/layout/Navbar";
+import { Toaster } from "@/components/ui/toaster";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -17,7 +18,10 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "devX",
+  title: {
+    absolute: "devX",
+    template: "%s - devX",
+  },
   description: "Get rid of SDK's and just focus on development.",
 };
 
@@ -38,6 +42,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navbar />
+          <Toaster />
           {children}
         </ThemeProvider>
       </body>
