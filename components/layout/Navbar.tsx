@@ -7,12 +7,16 @@ const navItems = [
     },
     {
         name: "About",
-        link: "/about",
+        link: "https://ankushsingh.tech/about",
     },
     {
         name: "Contact",
-        link: "/contact",
+        link: "https://ankushsingh.tech/freelance",
     },
+    {
+        name: "Dashboard",
+        link: "/dashboard"
+    }
 ];
 
 export default function Navbar() {
