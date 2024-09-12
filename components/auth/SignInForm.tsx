@@ -1,11 +1,11 @@
 'use client';
-import axios, { AxiosError } from "axios";
+// import axios, { AxiosError } from "axios";
 import { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 
 import { cn } from "@/lib/utils";
-import { ApiResponse } from "@/types/ApiResponse";
-import { useToast } from "@/hooks/use-toast";
+// import { ApiResponse } from "@/types/ApiResponse";
+// import { useToast } from "@/hooks/use-toast";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { RiLoader2Line } from "react-icons/ri";
@@ -20,13 +20,13 @@ type SigninFormData = {
 
 export function SigninForm() {
     const { register, handleSubmit, formState: { errors } } = useForm<SigninFormData>();
-    const { toast } = useToast();
+    // const { toast } = useToast();
     const [loading, setLoading] = useState(false);
 
     const onSubmit: SubmitHandler<SigninFormData> = async (data) => {
         setLoading(true);
         try {
-            
+            console.log(data);
         } catch (error) {
             
         } finally {
