@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 import "@/styles/globals.css";
 
 import { ThemeProvider } from "@/context/ThemeProviderContext";
-import Navbar from "@/components/layout/Navbar";
+import { Navbar } from "@/components/layout/Navbar";
 import { Toaster } from "@/components/ui/toaster";
 import AuthProvider from "@/context/SessionProvider";
 
