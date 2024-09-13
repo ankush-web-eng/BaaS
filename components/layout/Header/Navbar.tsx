@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
-import Image from "next/image";
+// import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { signOut, useSession } from "next-auth/react";
@@ -42,9 +42,9 @@ const SlideTabs = () => {
 			}}
 			className="flex relative items-center py-3 px-5 mx-auto text-sm text-gray-200 bg-gradient-to-tr to-transparent rounded-full border-2 w-fit border-white/5 from-zinc-300/5 via-gray-400/5 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] backdrop-blur-lg backdrop-filter"
 		>
-			<Link href={"/"} className="flex items-start mr-4 opacity-50 h-fit">
+			{/* <Link href={"/"} className="flex items-start mr-4 opacity-50 h-fit">
 				<Image src={''} alt="DevX logo" width={40} height={40} />
-			</Link>
+			</Link> */}
 
 			<Tab key={0} setPosition={setPosition}>
 				<Link className="w-full h-full" href={"/dashboard"}>
@@ -52,15 +52,15 @@ const SlideTabs = () => {
 				</Link>
 			</Tab>
 			<Tab setPosition={setPosition}>
-				<Link className="w-full h-full" href={"/#use-cases"}>
-					Use Cases
+				<Link className="w-full h-full" href={"/"}>
+					Home
 				</Link>
 			</Tab>
-			<Tab setPosition={setPosition}>
+			{/* <Tab setPosition={setPosition}>
 				<Link className="w-full h-full" href={"/#features"}>
 					Features
 				</Link>
-			</Tab>
+			</Tab> */}
 			<Tab setPosition={setPosition}>
 				<button onClick={handleAuth} className="w-full h-full">
 					{session ? "Logout" : "Login"}
@@ -68,7 +68,7 @@ const SlideTabs = () => {
 			</Tab>
 
 			<Link
-				href="https://github.com/ankush-web-eng/SaaS"
+				href="https://dub.sh/devX"
 				target="_blank"
 				className="inline-flex gap-x-2 justify-start items-start py-3 px-5 ml-3 w-full rounded-3xl border duration-200 sm:w-auto group bg-page-gradient border-white/30 text-md font-geistSans hover:border-zinc-600 hover:bg-transparent/10 hover:text-zinc-100"
 			>
