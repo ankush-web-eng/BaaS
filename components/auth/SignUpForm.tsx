@@ -171,7 +171,7 @@ const VerifyForm = () => {
                 })
             }
             localStorage.removeItem('email');
-            router.replace('/login');
+            router.replace('/signin');
         } catch (error) {
             const axiosError = error as AxiosError<ApiResponse>
             const errorMessage = axiosError.response?.data.message

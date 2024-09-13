@@ -25,12 +25,10 @@ export const authOptions: NextAuthOptions = {
                     console.log(email, password);
                     if (email && password) {
                         const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/signin`, { email, password });
-                        console.log(response.data);
                         if (response.status !== 200) {
                             throw new Error(response.data);
                         } else {
-                            console.log(response.data);
-                            const user = response.data.user;
+                            const user = response.data;
                             return user;
                         }
                     }
@@ -39,6 +37,7 @@ export const authOptions: NextAuthOptions = {
                     }
                 } catch (err) {
                     const axiosError = err as AxiosError<string>
+                    console.log("respponse data: ", axiosError.response?.data);
                     throw new Error(axiosError.response?.data);
                 }
             },
@@ -56,16 +55,16 @@ export const authOptions: NextAuthOptions = {
 
                 }
 
-                token.name = user.name
-                token.email = user.email;
+                token.Name = user.Name;
+                token.Email = user.Email;
             }
             return token;
         },
         async session({ session, token }: { session: Session, token: JWT }) {
             if (token) {
                 if (session.user) {
-                    session.user.name = token.name as string;
-                    session.user.email = token.email as string;
+                    session.user.Name = token.Name as string;
+                    session.user.Email = token.Email as string;
                 }
             }
             return session;
