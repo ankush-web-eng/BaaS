@@ -1,3 +1,6 @@
+import { User } from './User';
+
 export interface ApiResponse {
-    message: string;
+    message: string | undefined;
+    user: User | undefined;
 }

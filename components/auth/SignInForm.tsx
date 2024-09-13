@@ -1,17 +1,16 @@
 'use client';
-// import axios, { AxiosError } from "axios";
 import { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 
 import { cn } from "@/lib/utils";
-// import { ApiResponse } from "@/types/ApiResponse";
-// import { useToast } from "@/hooks/use-toast";
+import { useToast } from "@/hooks/use-toast";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { RiLoader2Line } from "react-icons/ri";
 import Link from "next/link";
-// import { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { IconBrandGoogle } from "@tabler/icons-react";
+import { signIn } from "next-auth/react";
 
 type SigninFormData = {
     email: string;
@@ -20,17 +19,47 @@ type SigninFormData = {
 
 export function SigninForm() {
     const { register, handleSubmit, formState: { errors } } = useForm<SigninFormData>();
-    // const { toast } = useToast();
+    const { toast } = useToast();
+    const router = useRouter();
     const [loading, setLoading] = useState(false);
 
-    const onSubmit: SubmitHandler<SigninFormData> = async (data) => {
+    const onSubmit: SubmitHandler<SigninFormData> = async (data: SigninFormData) => {
         setLoading(true);
+        console.log("data: ", data);
+        console.log("data: ", data.email, data.password);
         try {
-            console.log(data);
-        } catch (error) {
-            
-        } finally {
-            setLoading(false);
+            const result = await signIn('credentials', {
+                redirect: false,
+                identifier: data.email,
+                password: data.password,
+            });
+            if (result?.error) {
+                if (result.error === 'CredentialsSignin') {
+                    toast({
+                        title: 'Login Failed',
+                        description: 'Incorrect username or password',
+                        variant: 'destructive',
+                        duration: 2000,
+                    });
+                } else {
+                    toast({
+                        title: 'Error',
+                        description: result.error,
+                        variant: 'destructive',
+                        duration: 2000,
+                    });
+                }
+            }
+            if (result?.url) {
+                setLoading(true);
+                router.replace('/dashboard');
+            }
+        } catch {
+            toast({
+                title: 'Error',
+                description: 'Server Error occurred. Please try again after some time.',
+                variant: 'destructive',
+            });
         }
     };
 
@@ -88,6 +117,7 @@ export function SigninForm() {
                         <button
                             className=" relative group/btn flex space-x-2 items-center justify-center px-4 w-full text-black rounded-md h-10 font-medium shadow-input bg-gray-50 dark:bg-zinc-900 dark:shadow-[0px_0px_1px_1px_var(--neutral-800)]"
                             type="button"
+                            onClick={() => signIn('google')}
                         >
                             <IconBrandGoogle className="h-4 w-4 text-neutral-800 dark:text-neutral-300" />
                             <span className="text-neutral-700 dark:text-neutral-300 text-sm">

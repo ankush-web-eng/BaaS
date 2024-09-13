@@ -9,6 +9,7 @@ import {
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { signOut, useSession } from "next-auth/react";
 // import { ModeToggle } from "./ThemeToggle";
 
 export const FloatingNav = ({
@@ -24,6 +25,7 @@ export const FloatingNav = ({
 }) => {
   const { scrollYProgress } = useScroll();
   const router = useRouter();
+  const { data: session } = useSession();
 
   const [visible, setVisible] = useState(false);
 
@@ -45,7 +47,11 @@ export const FloatingNav = ({
   });
 
   const handleAuth = () => {
-    router.push("/signin");
+    if (session) {
+      signOut();
+    } else {
+      router.push("/signin");
+    }
   }
 
   return (
@@ -80,7 +86,7 @@ export const FloatingNav = ({
           </Link>
         ))}
         <button onClick={handleAuth} className="border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-black dark:text-white px-4 py-2 rounded-full">
-          <span>Login</span>
+          <span>{session ? "Logout" : "Login"}</span>
           <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-blue-500 to-transparent  h-px" />
         </button>
         {/* <ModeToggle /> */}
