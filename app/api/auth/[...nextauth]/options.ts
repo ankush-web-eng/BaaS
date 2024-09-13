@@ -1,10 +1,9 @@
-import { ApiResponse } from '@/types/ApiResponse';
 import axios, { AxiosError } from 'axios';
 import { NextAuthOptions, Session } from 'next-auth';
 import { JWT } from 'next-auth/jwt';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import GoogleProvider from 'next-auth/providers/google';
-import { User } from '@/types/User';
+// import { User } from '@/types/User';
 
 export const authOptions: NextAuthOptions = {
     providers: [
@@ -23,12 +22,15 @@ export const authOptions: NextAuthOptions = {
                 try {
                     const email = credentials?.identifier;
                     const password = credentials?.password;
+                    console.log(email, password);
                     if (email && password) {
                         const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/signin`, { email, password });
+                        console.log(response.data);
                         if (response.status !== 200) {
-                            throw new Error(response.data.message);
+                            throw new Error(response.data);
                         } else {
-                            const user: User = response.data.user;
+                            console.log(response.data);
+                            const user = response.data.user;
                             return user;
                         }
                     }
@@ -36,8 +38,8 @@ export const authOptions: NextAuthOptions = {
                         throw new Error('Credentials are required!!!');
                     }
                 } catch (err) {
-                    const axiosError = err as AxiosError<ApiResponse>
-                    throw new Error(axiosError.response?.data?.message);
+                    const axiosError = err as AxiosError<string>
+                    throw new Error(axiosError.response?.data);
                 }
             },
         })

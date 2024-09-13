@@ -41,6 +41,7 @@ export function SigninForm() {
                         variant: 'destructive',
                         duration: 2000,
                     });
+                    return;
                 } else {
                     toast({
                         title: 'Error',
@@ -48,10 +49,10 @@ export function SigninForm() {
                         variant: 'destructive',
                         duration: 2000,
                     });
+                    return;
                 }
             }
             if (result?.url) {
-                setLoading(true);
                 router.replace('/dashboard');
             }
         } catch {
@@ -60,6 +61,8 @@ export function SigninForm() {
                 description: 'Server Error occurred. Please try again after some time.',
                 variant: 'destructive',
             });
+        } finally {
+            setLoading(false);
         }
     };
 

@@ -43,10 +43,8 @@ export function SignupForm() {
             localStorage.setItem('email', data.email);
             setIsVerify(true);
         } catch (error) {
-            const axiosError = error as AxiosError<ApiResponse>;
-            const errorMessage = axiosError.response?.data.message;
-            ("There was a problem with your sign-up. Please try again.");
-            console.error(error);
+            const axiosError = error as AxiosError<string>;
+            const errorMessage = axiosError.response?.data || "There was a problem with your sign-up. Please try again.";
             toast({
                 title: "Sign Up Failed",
                 description: errorMessage,
