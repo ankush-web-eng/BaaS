@@ -28,7 +28,7 @@ const CloudinaryCredentials = () => {
     const handleSubmit = async () => {
         setLoading(true);
         try {
-            const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/service/cloudinary`, {
+            const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/credentials/cloudinary`, {
                 email,
                 cloudname,
                 apikey,

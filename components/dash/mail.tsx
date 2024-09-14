@@ -26,7 +26,7 @@ const MailCredentials = () => {
     const handleSubmit = async () => {
         setLoading(true);
         try {
-            const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/service/mail`, {
+            const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/credentials/mail`, {
                 emailUser,
                 password,
                 email

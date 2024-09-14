@@ -19,7 +19,7 @@ const ApiKey = () => {
 
     const handleSubmit = async () => {
         try {
-            const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/service/apikey`, {
+            const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/credentials/apikey`, {
                 apikey: apiKey
             });
             setApiKey(response.data);
