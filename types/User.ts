@@ -11,7 +11,7 @@ export interface User {
 
 export interface Cloudinary {
     ID: string;
-    Cloudname: string;
+    CloudName: string;
     APIKey: string;
     APISecret: string;
     Requests: number;

@@ -16,7 +16,6 @@ const UserContextProvider = ({ children }: { children: React.ReactNode }) => {
 
     const [user, setUser] = useState<User | null>(null);
     const { data: session } = useSession();
-    console.log("email is :", session?.user?.email);
 
     const getUser = useCallback(async () => {
         try {
