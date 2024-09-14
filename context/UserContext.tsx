@@ -16,20 +16,25 @@ const UserContextProvider = ({ children }: { children: React.ReactNode }) => {
 
     const [user, setUser] = useState<User | null>(null);
     const { data: session } = useSession();
+    console.log("email is :", session?.user?.email);
 
     const getUser = useCallback(async () => {
         try {
-            const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/user?email=${session?.user?.email}`);
-            setUser(res.data);
-            console.log(res.data);
+            if (session?.user?.email) {
+                const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/user?email=${session?.user?.email}`);
+                setUser(res.data);
+                console.log("User data:", res.data);
+            }
         } catch (error) {
-            console.error(error);
+            console.error("Error fetching user:", error);
         }
     }, [session?.user?.email]);
+
 
     useEffect(() => {
         getUser();
     }, [getUser]);
+
 
     const updateUser = () => {
         getUser();

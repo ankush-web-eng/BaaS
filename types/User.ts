@@ -1,29 +1,29 @@
 
 export interface User {
-    id: string;
-    name: string;
-    email: string;
-    apikey: string;
-    requests: number;
-    cloudinary: Cloudinary | undefined;
-    mail: Mail | undefined;
+    ID: string;
+    Name: string;
+    Email: string;
+    APIKey: string;
+    Requests: number;
+    Cloudinary?: Cloudinary;
+    Mail?: Mail;
 }
 
 export interface Cloudinary {
-    id: string;
-    cloudName: string;
-    apiKey: string;
-    apiSecret: string;
-    requests: number;
-    updatedAt: Date;
-    userId: string;
+    ID: string;
+    Cloudname: string;
+    APIKey: string;
+    APISecret: string;
+    Requests: number;
+    UpdatedAt: Date;
+    UserID: string;
 }
 
 export interface Mail {
-    id: string;
-    email: string;
-    password: string;
-    requests: number;
-    updatedAt: Date;
-    userId: string;
+    ID: string;
+    Email: string;
+    Password: string;
+    Requests: number;
+    UpdatedAt: Date;
+    UserID: string;
 }

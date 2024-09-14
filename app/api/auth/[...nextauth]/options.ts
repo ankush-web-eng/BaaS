@@ -55,7 +55,6 @@ export const authOptions: NextAuthOptions = {
 
                 }
 
-                token.Name = user.Name;
                 token.Email = user.Email;
             }
             return token;
@@ -63,8 +62,7 @@ export const authOptions: NextAuthOptions = {
         async session({ session, token }: { session: Session, token: JWT }) {
             if (token) {
                 if (session.user) {
-                    session.user.Name = token.Name as string;
-                    session.user.Email = token.Email as string;
+                    session.user.email = token.Email as string;
                 }
             }
             return session;

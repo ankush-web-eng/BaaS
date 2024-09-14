@@ -32,7 +32,6 @@ export function SignupForm() {
         setLoading(true);
         try {
             const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/signup`, data);
-            console.log(data);
             if (response.status === 201) {
                 toast({
                     title: "Success",
@@ -161,7 +160,6 @@ const VerifyForm = () => {
         setlaoding(true)
         try {
             const formdata = { ...data, email: localStorage.getItem('email') }
-            console.log(formdata);
             const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/verify`, formdata)
             if (response.status === 200) {
                 toast({

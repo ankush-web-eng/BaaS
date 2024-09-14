@@ -25,8 +25,6 @@ export function SigninForm() {
 
     const onSubmit: SubmitHandler<SigninFormData> = async (data: SigninFormData) => {
         setLoading(true);
-        console.log("data: ", data);
-        console.log("data: ", data.email, data.password);
         try {
             const result = await signIn('credentials', {
                 redirect: false,

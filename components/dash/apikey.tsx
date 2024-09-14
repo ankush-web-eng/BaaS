@@ -9,47 +9,48 @@ import { cn } from "@/lib/utils";
 const ApiKey = () => {
 
     const { user, updateUser } = useUser();
-    const [apiKey, setApiKey] = useState<string | undefined>(user?.apikey);
+    const [apiKey, setApiKey] = useState<string | undefined>(user?.APIKey);
     const isApiKey = apiKey ? true : false;
 
     useEffect(() => {
         updateUser();
     }, [updateUser]);
 
-    const hadleSubmit = async () => {
-        if (isApiKey) {
-            try {
-                const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/service/apikey`, {
-                    apikey: apiKey
-                });
-                setApiKey(response.data);
-                updateUser();
-            } catch (error) {
-                console.error(error);
-            }
+    const handleSubmit = async () => {
+        try {
+            const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/service/apikey`, {
+                apikey: apiKey
+            });
+            setApiKey(response.data);
+            updateUser();
+        } catch (error) {
+            console.error(error);
         }
     }
 
+
     return (
-        <div className="w-fit h-auto p-3 flex items-center space-x-3">
-            <div className="">
-                <LabelInputContainer className="mb-4">
-                    <Label htmlFor="apikey">API Key</Label>
-                    <Input
-                        id="apikey"
-                        placeholder="Generate your API Key"
-                        type="text"
-                        value={apiKey}
-                        disabled
-                    />
-                </LabelInputContainer>
+        <div className="w-fit h-auto p-3 flex flex-col items-center justify-center space-y-3 bg-white dark:bg-black shadow-blue-950 rounded-xl">
+            <Label htmlFor="apikey">API Key</Label>
+            <div className="flex space-x-3">
+                <div className="text-neutral-800 dark:text-neutral-200">
+                    <LabelInputContainer className="mb-4">
+                        <Input
+                            id="apikey"
+                            placeholder="Generate your API Key"
+                            type="text"
+                            value={apiKey}
+                            disabled
+                        />
+                    </LabelInputContainer>
+                </div>
+                {!isApiKey && <button
+                    onClick={handleSubmit}
+                    className="relative group/btn flex space-x-2 items-center justify-center px-4 w-fit rounded-md h-10 font-medium shadow-input bg-gray-50 dark:bg-zinc-900 dark:shadow-[0px_0px_1px_1px_var(--neutral-800)] text-neutral-200">
+                    <span>Generate</span>
+                    <BottomGradient />
+                </button>}
             </div>
-            {isApiKey && <button
-                onClick={hadleSubmit}
-                className="relative group/btn flex space-x-2 items-center justify-center px-4 w-fit text-black rounded-md h-10 font-medium shadow-input bg-gray-50 dark:bg-zinc-900 dark:shadow-[0px_0px_1px_1px_var(--neutral-800)]">
-                <span>Generate</span>
-                <BottomGradient />
-            </button>}
         </div>
     )
 }

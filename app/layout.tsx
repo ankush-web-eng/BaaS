@@ -86,7 +86,7 @@ export default function RootLayout({
           <UserContextProvider>
             <ThemeProvider
               attribute="class"
-              defaultTheme="system"
+              defaultTheme="dark"
               enableSystem
               disableTransitionOnChange
             >
