@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/context/ThemeProviderContext";
 import { Navbar } from "@/components/layout/Navbar";
 import { Toaster } from "@/components/ui/toaster";
 import AuthProvider from "@/context/SessionProvider";
+import { UserContextProvider } from "@/context/UserContext";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -82,16 +83,18 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <AuthProvider>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <Navbar />
-            <Toaster />
-            {children}
-          </ThemeProvider>
+          <UserContextProvider>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+            >
+              <Navbar />
+              <Toaster />
+              {children}
+            </ThemeProvider>
+          </UserContextProvider>
         </AuthProvider>
       </body>
     </html>
