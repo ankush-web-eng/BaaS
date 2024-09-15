@@ -1,27 +1,15 @@
 "use client";
 
 import React, { useState } from "react";
-import { useKeyPress } from "@/hooks/useKeyPress"; // Adjust the import path as necessary
+import { useKeyPress } from "@/hooks/useKeyPress";
 import Image from "next/image";
 import Link from "next/link";
-// import { Button } from "@/components/ui/button";
-// import { PlusCircleIcon } from "lucide-react";
-// import Editor from "@/components/editor/advanced-editor";
 import {
 	Dialog,
-	// DialogContent,
-	// DialogFooter,
-	// DialogHeader,
-	// DialogTitle,
 	DialogTrigger,
 } from "@/components/ui/dialog";
-// import { Label } from "@/components/ui/label";
-// import { Textarea } from "@/components/ui/textarea";
-// import { toast } from "@/hooks/use-toast";
-// import { getSpaces } from "../actions/fetchers";
 import { HomeIcon } from "@heroicons/react/24/solid";
-// import ComboboxWithCreate from "@/components/ui/combobox";
-// import { useFormStatus } from "react-dom";
+import { EditIcon } from "lucide-react";
 
 
 function Menu() {
@@ -60,38 +48,18 @@ function Menu() {
 				<div className="hidden lg:flex fixed h-screen w-full p-4 items-center top-0 left-0 pointer-events-none z-[39]">
 					<div className="pointer-events-auto text-neutral-700 dark:text-neutral-300 group flex w-14 text-foreground-menu text-[15px] font-medium flex-col items-start gap-6 overflow-hidden rounded-[28px] dark:bg-[#050315] bg-neutral-100 px-3 py-4 duration-200 hover:w-40 z-[99999]">
 						<div className="pb-4 w-full">
-							<DialogTrigger className="flex w-full text-white brightness-75 hover:brightness-125 focus:brightness-125  cursor-pointer items-center gap-3 px-1 duration-200 justify-start">
-								{/* <Image
-									// src={AddIcon}
-									src={""}
-									alt="Logo"
-									width={24}
-									height={24}
-									className="hover:brightness-125 focus:brightness-125 duration-200 text-white"
-								/>
-								<p className="opacity-0 duration-200 group-hover:opacity-100">
-									Add
-								</p> */}
-							</DialogTrigger>
 						</div>
-						{menuItems.map((item) => (
-							<Link
-								href={item.url}
-								key={item.url}
-								className="flex w-full items-center gap-3 px-1 duration-200 hover:scale-105 active:scale-90 justify-start text-white brightness-75 hover:brightness-125 cursor-pointer"
-							>
-								<Image
-									src={item.icon as string}
-									alt={`${item.text} icon`}
-									width={24}
-									height={24}
-									className="hover:brightness-125 duration-200"
-								/>
-								<p className="opacity-0 duration-200 group-hover:opacity-100">
-									{item.text}
-								</p>
-							</Link>
-						))}
+						<Link
+							href="/dashboard/edit"
+							className="group relative flex items-center px-3 py-2 w-12 duration-200 hover:w-24 hover:scale-105 active:scale-90 text-white brightness-75 hover:brightness-125 cursor-pointer overflow-hidden"
+						>
+							<EditIcon width={24} height={24} className="hover:brightness-125 duration-200" />
+							<span className="absolute left-12 opacity-0 duration-200 group-hover:opacity-100 whitespace-nowrap">
+								Edit
+							</span>
+						</Link>
+						<div className="pb-2 w-full">
+						</div>
 					</div>
 				</div>
 
@@ -111,15 +79,6 @@ function Menu() {
 						<DialogTrigger
 							className={`flex flex-col items-center cursor-pointer text-white`}
 						>
-							{/* <Image
-								// src={AddIcon}
-								src={""}
-								alt="Logo"
-								width={24}
-								height={24}
-								className="hover:brightness-125 focus:brightness-125 duration-200 stroke-white"
-							/>
-							<p className="text-xs text-foreground-menu mt-2">Add</p> */}
 						</DialogTrigger>
 						{menuItems.slice(1, 2).map((item) => (
 							<Link
@@ -127,8 +86,8 @@ function Menu() {
 								href={item.disabled ? "#" : item.url}
 								key={item.url}
 								className={`flex flex-col items-center ${item.disabled
-										? "opacity-50 cursor-not-allowed"
-										: "cursor-pointer"
+									? "opacity-50 cursor-not-allowed"
+									: "cursor-pointer"
 									}`}
 								onClick={(e) => item.disabled && e.preventDefault()}
 							>

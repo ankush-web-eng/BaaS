@@ -14,6 +14,7 @@ const ApiKey = () => {
 
     const { user, updateUser } = useUser();
     const [apiKey, setApiKey] = useState<string | undefined>(user?.APIKey);
+    const [dashboard, setDashboard] = useState<boolean>(false);
     const isApiKey = apiKey ? true : false;
     const { toast } = useToast();
 
@@ -44,8 +45,15 @@ const ApiKey = () => {
         setApiKey(user?.APIKey);
     }, [user?.APIKey]);
 
+    useEffect(() => {
+        if (window.location.pathname === "/dashboard/edit") {
+            setDashboard(true)
+        }
+    }, [])
+
+
     return (
-        <div className="w-fit h-auto py-3 px-5 flex flex-col items-center justify-center space-y-3 bg-white dark:bg-black shadow-blue-950 rounded-xl">
+        <div className="w-fit h-auto py-3 px-5 flex flex-col items-center justify-center space-y-3 shadow-blue-950 rounded-xl">
             <Label htmlFor="apikey">API Key</Label>
             <div className="flex space-x-3">
                 <div className="mb-4 relative">
@@ -61,7 +69,7 @@ const ApiKey = () => {
                         <CopyIcon size={20} />
                     </div>
                 </div>
-                {!isApiKey && <button
+                {dashboard && !isApiKey && <button
                     onClick={handleSubmit}
                     className="relative group/btn flex space-x-2 items-center justify-center px-4 w-fit rounded-md h-10 font-medium shadow-input bg-gray-50 dark:bg-zinc-900 dark:shadow-[0px_0px_1px_1px_var(--neutral-800)] text-neutral-200">
                     <span>Generate</span>
