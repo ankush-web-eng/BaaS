@@ -15,7 +15,6 @@ const ApiKey = () => {
     const { user, updateUser } = useUser();
     const [apiKey, setApiKey] = useState<string | undefined>(user?.APIKey);
     const [dashboard, setDashboard] = useState<boolean>(false);
-    const isApiKey = apiKey ? true : false;
     const { toast } = useToast();
 
     const handleSubmit = async () => {
@@ -69,7 +68,7 @@ const ApiKey = () => {
                         <CopyIcon size={20} />
                     </div>
                 </div>
-                {dashboard && !isApiKey && <button
+                {dashboard && <button
                     onClick={handleSubmit}
                     className="relative group/btn flex space-x-2 items-center justify-center px-4 w-fit rounded-md h-10 font-medium shadow-input bg-gray-50 dark:bg-zinc-900 dark:shadow-[0px_0px_1px_1px_var(--neutral-800)] text-neutral-200">
                     <span>Generate</span>

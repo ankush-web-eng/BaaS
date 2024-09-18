@@ -14,7 +14,7 @@ export default function Page() {
 
     return (
         <div className="min-h-screen flex flex-col max-md:space-y-3 justify-center items-center space-x-5">
-            <div className="flex w-full">
+            <div className="flex w-full max-md:flex-col">
                 <CloudinaryCredentials />
                 <MailCredentials />
             </div>

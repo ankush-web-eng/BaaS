@@ -10,6 +10,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@radix-ui/react-label";
 import { LabelInputContainer, BottomGradient } from "@/components/auth/SignUpForm";
 import { RiLoader2Line } from "react-icons/ri";
+import Link from "next/link";
 
 const CloudinaryCredentials = () => {
 
@@ -124,6 +125,12 @@ const CloudinaryCredentials = () => {
                         </button>}
     
                     <div className="w-full bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent my-8 h-[1px]" />
+                    {dashboard && <Link
+                            target="_blank"
+                            href={'https://cloudinary.com/documentation/finding_your_credentials_tutorial'}
+                            className="text-slate-500 hover:text-slate-300">
+                            How to get Cloudinary Credentials
+                        </Link>}
                 </form>
             </div>
         </div>

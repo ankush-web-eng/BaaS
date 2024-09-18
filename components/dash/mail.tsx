@@ -1,4 +1,5 @@
 'use client';
+import Link from "next/link";
 import axios, { AxiosError } from "axios";
 import { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
@@ -110,6 +111,14 @@ const MailCredentials = () => {
                         </button>}
 
                     <div className="bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent my-8 h-[1px] w-full" />
+                    <div className="flex w-full items-center justify-center mt-3">
+                        {dashboard && <Link
+                            target="_blank"
+                            href={'https://knowledge.workspace.google.com/kb/how-to-create-app-passwords-000009237'}
+                            className="text-slate-500 hover:text-slate-300">
+                            How to create App Passwords
+                        </Link>}
+                    </div>
                 </form>
             </div>
         </div>
