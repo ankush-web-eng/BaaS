@@ -25,6 +25,7 @@ export function PostmanScroll() {
           width={1400}
           className="mx-auto rounded-2xl object-cover h-full object-left-top"
           draggable={false}
+          unoptimized
         />
       </ContainerScroll>
     </div>
