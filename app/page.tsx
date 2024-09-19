@@ -5,7 +5,7 @@ export default function page() {
   return (
     <div className="no-visible-scrollbar">
       <SpotlightPreview />
-     <LazyComponent />
+      <LazyComponent />
     </div>
   )
 }

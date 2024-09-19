@@ -9,6 +9,7 @@ import { BottomGradient } from "@/components/auth/SignUpForm";
 
 import { CopyIcon } from "lucide-react";
 import { Label } from "@radix-ui/react-label";
+import { useSession } from "next-auth/react";
 
 const ApiKey = () => {
 
@@ -16,11 +17,12 @@ const ApiKey = () => {
     const [apiKey, setApiKey] = useState<string | undefined>(user?.APIKey);
     const [dashboard, setDashboard] = useState<boolean>(false);
     const { toast } = useToast();
+    const {data:session} = useSession();
 
     const handleSubmit = async () => {
         try {
             const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/credentials/apikey`, {
-                apikey: apiKey
+                email: session?.user?.email
             });
             setApiKey(response.data);
             updateUser();

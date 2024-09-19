@@ -1,24 +1,19 @@
 "use client";
 
-// import { useState } from "react";
-// import { Button } from "@/components/ui/button";
+import React from 'react';
 
 export default function YouTubeTutorial() {
-
-    // const [loaded, setLoaded] = useState(false);
-
     return (
-        <>
-            {/* {loaded ? */}
-                <div id="youtube" className="flex flex-col space-y-2 min-h-screen justify-center items-center w-full">
-                    <iframe className="rounded-xl" width="1080" height="540" src="https://www.youtube.com/embed/gGhcjKgid4A?si=QY5HNbEykyi7gTfS"
-                        title="YouTube video player"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    ></iframe>
-                </div>
-                 :
-                {/* <Button variant={'secondary'} onClick={() => setLoaded(true)}></Button> */}
-            {/* } */}
-        </>
+        <div className="flex flex-col items-center justify-center min-h-screen w-full p-4">
+            <div className="w-full max-w-4xl aspect-video">
+                <iframe 
+                    className="w-full h-full rounded-xl"
+                    src="https://www.youtube.com/embed/gGhcjKgid4A?si=QY5HNbEykyi7gTfS"
+                    title="YouTube video player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                ></iframe>
+            </div>
+        </div>
     );
 }
