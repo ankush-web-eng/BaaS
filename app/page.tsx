@@ -3,7 +3,7 @@ import LazyComponent from "@/components/LoadingHomePage";
 
 export default function page() {
   return (
-    <div className="no-visible-scrollbar">
+    <div className="">
       <SpotlightPreview />
       <LazyComponent />
     </div>

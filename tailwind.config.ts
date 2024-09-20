@@ -11,6 +11,7 @@ const config: Config = {
 		extend: {
 			animation: {
 				spotlight: "spotlight 2s ease .75s 1 forwards",
+				orbit: "orbit calc(var(--duration)*1s) linear infinite",
 			},
 			keyframes: {
 				spotlight: {
@@ -73,6 +74,6 @@ const config: Config = {
 			}
 		}
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [require("tailwindcss-animate"), require('tailwind-scrollbar')],
 };
 export default config;
