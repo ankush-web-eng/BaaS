@@ -1,5 +1,6 @@
+import dynamic from "next/dynamic";
 import SpotlightPreview from "@/components/layout/HeroSection";
-import LazyComponent from "@/components/LoadingHomePage";
+const LazyComponent = dynamic(() => import("@/components/LoadingHomePage"), { ssr: false });
 
 export default function page() {
   return (

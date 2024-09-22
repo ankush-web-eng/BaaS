@@ -5,6 +5,7 @@ import axios, { AxiosError } from "axios";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "../ui/button";
+import FileContentDisplay from "./file-upload";
 import { Upload } from "lucide-react";
 
 export function FileUploadDemo() {
@@ -12,8 +13,8 @@ export function FileUploadDemo() {
     const [url, setUrl] = useState<string>();
     const [isUploading, setIsUploading] = useState(false);
     const [error, setError] = useState('');
-    // const [imageSrc, setImageSrc] = useState<string | null>(null);
 
+    
     const handleFileUpload = (files: File[]) => {
         const file = files[0];
         setIsUploading(true);
@@ -101,6 +102,7 @@ export function FileUploadDemo() {
                     </CardFooter>
                 </CardContent>
             </Card>
+            <FileContentDisplay />
         </div>
     );
 }
