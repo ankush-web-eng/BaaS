@@ -54,7 +54,7 @@ const ApiKey = () => {
 
 
     return (
-        <div className="w-fit h-auto py-3 px-5 flex flex-col items-center justify-center space-y-3 shadow-blue-950 rounded-xl">
+        <div className="w-fit h-auto py-3 px-5 flex flex-col items-center justify-center space-y-3 shadow-blue-950 dark:shadow-blue-950 rounded-xl">
             <Label htmlFor="apikey">API Key</Label>
             <div className="flex space-x-3">
                 <div className="mb-4 relative">

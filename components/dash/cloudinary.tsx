@@ -69,7 +69,7 @@ const CloudinaryCredentials = () => {
 
     return (
         <div className="w-full h-full flex items-center justify-center">
-            <div className="w-full max-w-md py-3 px-5 flex flex-col items-center justify-center space-y-3 shadow-blue-950 rounded-xl">
+            <div className="w-full max-w-md py-3 px-5 flex flex-col items-center justify-center space-y-3 shadow-blue-950 dark:shadow-blue-950 rounded-xl">
                 <form className="my-8 w-full" onSubmit={handleSubmit} >
                     <div className="w-full flex flex-col items-center space-y-2 mb-4">
                         <LabelInputContainer className="w-full">
@@ -131,6 +131,8 @@ const CloudinaryCredentials = () => {
                             className="text-slate-500 hover:text-slate-300">
                             How to get Cloudinary Credentials
                         </Link>}
+                        {!dashboard && 
+                        <p>Total files uploaded : {user?.Cloudinary?.Requests}</p>}
                 </form>
             </div>
         </div>

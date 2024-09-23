@@ -118,6 +118,8 @@ const MailCredentials = () => {
                             className="text-slate-500 hover:text-slate-300">
                             How to create App Passwords
                         </Link>}
+                        {!dashboard && 
+                        <p>Total Mails sent : {user?.Mail?.Requests}</p>}
                     </div>
                 </form>
             </div>

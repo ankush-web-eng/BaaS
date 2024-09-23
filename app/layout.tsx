@@ -21,8 +21,8 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: {
-    absolute: "devX",
-    template: "%s - devX",
+    absolute: "SudoDev",
+    template: "%s - SudoDev",
   },
   description: "Get rid of SDK's and just focus on development.",
 
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
         url: "https://dev.ankushsingh.tech/android-chrome-512x512.png",
         width: 1200,
         height: 627,
-        alt: "devX - Get rid of SDK's and just focus on development.",
+        alt: "SudoDev - Get rid of SDK's and just focus on development.",
       },
     ],
   },
@@ -40,11 +40,11 @@ export const metadata: Metadata = {
     host: "https://dev.ankushsingh.tech",
     href: "/",
     origin: "https://dev.ankushsingh.tech",
-    password: "devX",
-    hash: "devX",
+    password: "SudoDev",
+    hash: "SudoDev",
     pathname: "/",
     search: "",
-    username: "devX",
+    username: "SudoDev",
     hostname: "ankushingh.tech",
     port: "",
     protocol: "https:",
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "https://dev.ankushsingh.tech",
     creator: "https://dev.ankushsingh.tech",
-    title: "devX - Get rid of SDK's and just focus on development.",
+    title: "SudoDev - Get rid of SDK's and just focus on development.",
     description:
       "Get rid of using the same code again and again. We have built SDK's for you for you so that you can just focus on developing projects. Just make an API call and let us handle the rest.",
     images: [
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
         url: "https://dev.ankushsingh.tech/android-chrome-512x512.png",
         width: 1200,
         height: 627,
-        alt: "devX - Get rid of SDK's and just focus on development.",
+        alt: "SudoDev - Get rid of SDK's and just focus on development.",
       },
     ],
   },

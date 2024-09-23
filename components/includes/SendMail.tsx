@@ -31,7 +31,7 @@ export function EmailFormDemo() {
 
         console.log("Email Data: ", emailData);
         try {
-            const res = await axios.post('https://api.devx.ankushsingh.tech/service/send-mail', emailData, {
+            const res = await axios.post('https://api.SudoDev.ankushsingh.tech/service/send-mail', emailData, {
                 headers: {
                     "API_KEY": process.env.NEXT_PUBLIC_API_KEY as string
                 }

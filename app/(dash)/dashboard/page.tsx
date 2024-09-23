@@ -6,8 +6,8 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
     title: "Dashboard",
-    description: "DevX Dashboard",
-    keywords: "DevX, Dashboard, Acocunt"
+    description: "SudoDev Dashboard",
+    keywords: "SudoDev, Dashboard, Acocunt"
 }
 
 export default function Page() {

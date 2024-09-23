@@ -48,7 +48,7 @@ export function FileUploadDemo() {
         try {
             const formData = new FormData();
             formData.append("file", file as File);
-            const res = await axios.post('https://api.devx.ankushsingh.tech/service/upload-file', formData, {
+            const res = await axios.post('https://api.SudoDev.ankushsingh.tech/service/upload-file', formData, {
                 headers: {
                     "Content-Type": "multipart/form-data",
                     "Accept": "application/json",
