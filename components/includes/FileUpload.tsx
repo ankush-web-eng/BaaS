@@ -5,8 +5,8 @@ import axios, { AxiosError } from "axios";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "../ui/button";
-import FileContentDisplay from "./file-upload";
 import { Upload } from "lucide-react";
+import UploadFileDemoCode from "./file-upload";
 
 export function FileUploadDemo() {
     const [file, setFile] = useState<File>();
@@ -14,7 +14,6 @@ export function FileUploadDemo() {
     const [isUploading, setIsUploading] = useState(false);
     const [error, setError] = useState('');
 
-    
     const handleFileUpload = (files: File[]) => {
         const file = files[0];
         setIsUploading(true);
@@ -67,7 +66,7 @@ export function FileUploadDemo() {
     }
 
     return (
-        <div className="w-[50%] max-md:w-full max-w-4xl mx-auto min-h-96 drop-shadow-lmd shadow-md shadow-blue-950 border-dashed bg-white dark:bg-black border-neutral-200 dark:border-neutral-800 rounded-lg">
+        <div className="w-[40%] max-md:w-full max-w-4xl mx-auto min-h-96 drop-shadow-lmd shadow-md shadow-blue-950 border-dashed bg-white dark:bg-black border-neutral-200 dark:border-neutral-800 rounded-lg">
             <FileUpload onChange={handleFileUpload} />
             <Card className="w-full max-w-md mx-auto">
                 <CardContent className="flex flex-col items-center space-y-4">
@@ -102,7 +101,7 @@ export function FileUploadDemo() {
                     </CardFooter>
                 </CardContent>
             </Card>
-            <FileContentDisplay />
+            <UploadFileDemoCode />
         </div>
     );
 }

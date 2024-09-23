@@ -7,6 +7,7 @@ import { RiLoader2Line } from "react-icons/ri";
 import { useToast } from "@/hooks/use-toast";
 import axios, { AxiosError } from "axios";
 import { useSession } from "next-auth/react";
+import SendMailDemoCode from "./send-mail";
 
 export function EmailFormDemo() {
     const [to, setTo] = useState<string>("");
@@ -56,7 +57,7 @@ export function EmailFormDemo() {
     };
 
     return (
-        <div className="max-w-md w-[50%] max-md:w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black">
+        <div className="w-[40%] max-md:w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black">
             <p className="text-neutral-600 drop-shadow-2xl shadow-blue-950  max-w-sm mt-2 dark:text-neutral-300 text-xl font-bold">
                 Enter details to send an email
             </p>
@@ -111,6 +112,7 @@ export function EmailFormDemo() {
                     <BottomGradient />
                 </button>
             </form>
+            <SendMailDemoCode />
         </div>
     );
 }
