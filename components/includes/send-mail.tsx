@@ -21,7 +21,7 @@ const handleSubmit = async (to:string[], from: string, body:string, subject:stri
 
     console.log("Email Data: ", emailData);
     try {
-        const res = await axios.post('https://api.SudoDev.ankushsingh.tech/service/send-mail', emailData, {
+        const res = await axios.post('https://api.devx.ankushsingh.tech/service/send-mail', emailData, {
             headers: {
                 "API_KEY": "your_api_key_here"
             }
