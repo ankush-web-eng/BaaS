@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
+<img src = "/landing.png">
+<h1 align="center">SudoDev</h1>
+</div>
 
-## Getting Started
+# SudoDev
 
-First, run the development server:
+## Get rid of SDK's and just focus on development.
+
+### Get rid of using the same code again and again. We have built SDK's for you for you so that you can just focus on developing projects. Just make an API call and let us handle the rest.
+
+If you are an absolute beginner or if you are someone who makes a lot of Full-Stack Projects,
+then sudodev is for you. It allows people to perform certain tasks by their application by just making an API call. 
+
+If you wanna try out, get your API_KEY now from [SudoDev](https://sudodev.ankushsingh.tech)
+
+The tutorial on how to use this application is [here](https://youtu.be/gGhcjKgid4A)
+
+### Backend in Golang
+
+This application performs all it's tasks at it'e best efficiency beacuse the backend is written 
+as in highly concurrent golang code. 
+
+- Here is the repo for [backend](https://github.com/ankush-web-eng/microservice)
+
+
+## If you are a dev curious about our code, follow below mentioned steps:
+
+### Clone this repo
+
+```bash
+git clone https://github.com/ankush-web-eng/SaaS
+```
+
+### Install the dependencies
+
+```bash
+npm install
+```
+
+### Run the application
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+or 
+```bash
+npm run build && npm run start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- The application will start on [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Happy Coding
