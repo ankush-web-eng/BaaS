@@ -1,5 +1,5 @@
 <div align="center">
-<img src = "/landing.png">
+<img src = "/public/landing.png">
 <h1 align="center">SudoDev</h1>
 </div>
 
