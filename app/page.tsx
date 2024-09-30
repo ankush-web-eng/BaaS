@@ -1,12 +1,5 @@
-import dynamic from "next/dynamic";
-import SpotlightPreview from "@/components/layout/HeroSection";
-const LazyComponent = dynamic(() => import("@/components/LoadingHomePage"), { ssr: false });
+import LandingPage from "@/components/landing-page";
 
 export default function page() {
-  return (
-    <div className="">
-      <SpotlightPreview />
-      <LazyComponent />
-    </div>
-  )
+  return <LandingPage />
 }
