@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "@/styles/globals.css";
 
-import { ThemeProvider } from "@/context/ThemeProviderContext";
+// import { ThemeProvider } from "@/context/ThemeProviderContext";
 import { Navbar } from "@/components/layout/Navbar";
 import { Toaster } from "@/components/ui/toaster";
 import AuthProvider from "@/context/SessionProvider";
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     images: [
       {
-        url: "https://dev.ankushsingh.tech/android-chrome-512x512.png",
+        url: "https://sudodev.ankushsingh.tech/android-chrome-512x512.png",
         width: 1200,
         height: 627,
         alt: "SudoDev - Get rid of SDK's and just focus on development.",
@@ -37,9 +37,9 @@ export const metadata: Metadata = {
     ],
   },
   metadataBase: {
-    host: "https://dev.ankushsingh.tech",
+    host: "https://sudodev.ankushsingh.tech",
     href: "/",
-    origin: "https://dev.ankushsingh.tech",
+    origin: "https://sudodev.ankushsingh.tech",
     password: "SudoDev",
     hash: "SudoDev",
     pathname: "/",
@@ -49,19 +49,19 @@ export const metadata: Metadata = {
     port: "",
     protocol: "https:",
     searchParams: new URLSearchParams(""),
-    toString: () => "https://dev.ankushsingh.tech",
-    toJSON: () => "https://dev.ankushsingh.tech",
+    toString: () => "https://sudodev.ankushsingh.tech",
+    toJSON: () => "https://sudodev.ankushsingh.tech",
   },
   twitter: {
     card: "summary_large_image",
-    site: "https://dev.ankushsingh.tech",
-    creator: "https://dev.ankushsingh.tech",
+    site: "https://sudodev.ankushsingh.tech",
+    creator: "https://sudodev.ankushsingh.tech",
     title: "SudoDev - Get rid of SDK's and just focus on development.",
     description:
       "Get rid of using the same code again and again. We have built SDK's for you for you so that you can just focus on developing projects. Just make an API call and let us handle the rest.",
     images: [
       {
-        url: "https://dev.ankushsingh.tech/android-chrome-512x512.png",
+        url: "https://sudodev.ankushsingh.tech/landing.png",
         width: 1200,
         height: 627,
         alt: "SudoDev - Get rid of SDK's and just focus on development.",
@@ -84,16 +84,15 @@ export default function RootLayout({
       >
         <AuthProvider>
           <UserContextProvider>
-            <ThemeProvider
+            {/* <ThemeProvider
               attribute="class"
               defaultTheme="dark"
-              enableSystem
               disableTransitionOnChange
-            >
+            > */}
               <Navbar />
               <Toaster />
               {children}
-            </ThemeProvider>
+            {/* </ThemeProvider> */}
           </UserContextProvider>
         </AuthProvider>
       </body>

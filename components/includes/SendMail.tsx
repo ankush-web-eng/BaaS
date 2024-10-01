@@ -31,7 +31,7 @@ export function EmailFormDemo() {
 
         console.log("Email Data: ", emailData);
         try {
-            const res = await axios.post('https://api.SudoDev.ankushsingh.tech/service/send-mail', emailData, {
+            const res = await axios.post('https://api.devx.ankushsingh.tech/service/send-mail', emailData, {
                 headers: {
                     "API_KEY": process.env.NEXT_PUBLIC_API_KEY as string
                 }
@@ -57,8 +57,8 @@ export function EmailFormDemo() {
     };
 
     return (
-        <div className="w-[40%] max-md:w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black">
-            <p className="text-neutral-600 drop-shadow-2xl shadow-blue-950  max-w-sm mt-2 dark:text-neutral-300 text-xl font-bold">
+        <div className="w-[40%] max-md:w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-black">
+            <p className="drop-shadow-2xl shadow-blue-950  max-w-sm mt-2 text-neutral-300 text-xl font-bold">
                 Enter details to send an email
             </p>
 
@@ -71,6 +71,7 @@ export function EmailFormDemo() {
                         type="text"
                         value={to}
                         onChange={(e) => setTo(e.target.value)}
+                        
                     />
                 </LabelInputContainer>
 

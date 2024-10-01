@@ -48,7 +48,7 @@ export function FileUploadDemo() {
         try {
             const formData = new FormData();
             formData.append("file", file as File);
-            const res = await axios.post('https://api.SudoDev.ankushsingh.tech/service/upload-file', formData, {
+            const res = await axios.post('https://api.devx.ankushsingh.tech/service/upload-file', formData, {
                 headers: {
                     "Content-Type": "multipart/form-data",
                     "Accept": "application/json",
@@ -66,7 +66,7 @@ export function FileUploadDemo() {
     }
 
     return (
-        <div className="w-[40%] max-md:w-full max-w-4xl mx-auto min-h-96 drop-shadow-lmd shadow-md shadow-blue-950 border-dashed bg-white dark:bg-black border-neutral-200 dark:border-neutral-800 rounded-lg">
+        <div className="w-[40%] max-md:w-full max-w-4xl mx-auto min-h-96 drop-shadow-lmd shadow-md shadow-blue-950 border-dashed bg-black border-neutral-200 dark:border-neutral-800 rounded-lg">
             <FileUpload onChange={handleFileUpload} />
             <Card className="w-full max-w-md mx-auto">
                 <CardContent className="flex flex-col items-center space-y-4">
