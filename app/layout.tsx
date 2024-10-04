@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "@/styles/globals.css";
 
-// import { ThemeProvider } from "@/context/ThemeProviderContext";
+import { ThemeProvider } from "@/context/ThemeProviderContext";
 import { Navbar } from "@/components/layout/Navbar";
 import { Toaster } from "@/components/ui/toaster";
 import AuthProvider from "@/context/SessionProvider";
@@ -84,15 +84,15 @@ export default function RootLayout({
       >
         <AuthProvider>
           <UserContextProvider>
-            {/* <ThemeProvider
+            <ThemeProvider
               attribute="class"
               defaultTheme="dark"
               disableTransitionOnChange
-            > */}
+            >
               <Navbar />
               <Toaster />
               {children}
-            {/* </ThemeProvider> */}
+            </ThemeProvider>
           </UserContextProvider>
         </AuthProvider>
       </body>

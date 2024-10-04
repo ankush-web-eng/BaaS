@@ -8,6 +8,7 @@ import {
 	Dialog,
 } from "@/components/ui/dialog";
 import { signOut } from "next-auth/react";
+import { ModeToggle } from "@/components/ui/ThemeToggle";
 
 function Menu() {
 	useKeyPress("a", () => {
@@ -78,6 +79,14 @@ function Menu() {
 								</p>
 							</div>
 						</div>
+						<div className="pt-2 w-full">
+							<div className="flex w-full text-white brightness-75 hover:brightness-125 focus:brightness-125  cursor-pointer items-center gap-3 px-1 duration-200 justify-start">
+								<ModeToggle />
+								<p className="opacity-0 duration-200 group-hover:opacity-100">
+									Theme
+								</p>
+							</div>
+						</div>
 						<div className="pb-2 w-full">
 						</div>
 					</div>
@@ -103,7 +112,7 @@ function Menu() {
 									alt={`${item.text} icon`}
 									width={24}
 									height={24}
-									className="text-white brightness-100" // Ensure icon is visible
+									className="text-white brightness-100"
 								/>
 								<p className="text-xs text-foreground-menu mt-2 text-white">{item.text}</p>
 							</Link>
@@ -117,9 +126,16 @@ function Menu() {
 								alt="Signout icon"
 								width={24}
 								height={24}
+								onClick={() => signOut()}
 							/>
 							<p className="text-xs text-foreground-menu mt-2">Signout</p>
 						</Link>
+						<div
+							className={`flex flex-col items-center text-white ${"cursor-pointer"}`}
+						>
+							<ModeToggle />
+							<p className="text-xs text-foreground-menu mt-2">Theme</p>
+						</div>
 					</div>
 				</div>
 			</Dialog>

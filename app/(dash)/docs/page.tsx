@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function Page() {
     return (
-        <div className="min-h-screen flex justify-center items-center w-full">
+        <div className="min-h-screen flex justify-center items-center w-full py-6 sm:py-12 md:py-20 lg:py-24">
             <div className="flex max-md:flex-col md:justify-evenly max-md:space-y-3 w-full">
                 <FileUploadDemo />
                 <EmailFormDemo />

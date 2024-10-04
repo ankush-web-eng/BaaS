@@ -3,15 +3,16 @@ import * as React from "react"
 import { MoonIcon, SunIcon } from "@radix-ui/react-icons"
 import { useTheme } from "next-themes"
 
-import { Button } from "@/components/ui/button"
+// import { Button } from "@/components/ui/button"
 
 export function ModeToggle() {
   const { theme, setTheme } = useTheme()
 
   return (
-    <Button
-      variant="default"
-      size="icon"
+    <button
+      // variant="default"
+      // size="icon"
+      className="flex space-x-2"
       onClick={() =>
         setTheme(theme === "light" ? "dark" : theme === "dark" ? "light" : "system")
       }
@@ -27,6 +28,6 @@ export function ModeToggle() {
           <span className="sr-only">Switch to Light Mode</span>
         </>
       )}
-    </Button>
+    </button>
   )
 }
