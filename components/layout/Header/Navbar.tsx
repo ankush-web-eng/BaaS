@@ -56,11 +56,11 @@ const SlideTabs = () => {
 					Home
 				</Link>
 			</Tab>
-			{/* <Tab setPosition={setPosition}>
+			<Tab setPosition={setPosition}>
 				<Link className="w-full h-full" href={"/#youtube"}>
 					How-to-use
 				</Link>
-			</Tab> */}
+			</Tab>
 			{/* <Tab setPosition={setPosition}>
 				<Link className="w-full h-full" href={"/#features"}>
 					Features
@@ -73,7 +73,7 @@ const SlideTabs = () => {
 			</Tab>
 
 			<Link
-				href="https://dub.sh/SudoDev"
+				href="https://github.com/ankush-web-eng/microservice"
 				target="_blank"
 				className="inline-flex gap-x-2 justify-start items-start py-3 px-5 ml-3 w-full rounded-3xl border duration-200 sm:w-auto group bg-page-gradient border-white/30 text-md font-geistSans hover:border-zinc-600 hover:bg-transparent/10 hover:text-zinc-100"
 			>
