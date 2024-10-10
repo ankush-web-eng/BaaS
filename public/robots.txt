@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://sudodev.ankushsingh.tech
+
+# Sitemaps
+Sitemap: https://sudodev.ankushsingh.tech/sitemap.xml

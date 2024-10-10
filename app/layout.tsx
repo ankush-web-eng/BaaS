@@ -26,39 +26,14 @@ export const metadata: Metadata = {
   },
   description: "Get rid of SDK's and just focus on development.",
 
-  openGraph: {
-    images: [
-      {
-        url: "https://sudodev.ankushsingh.tech/android-chrome-512x512.png",
-        width: 1200,
-        height: 627,
-        alt: "SudoDev - Get rid of SDK's and just focus on development.",
-      },
-    ],
-  },
-  metadataBase: {
-    host: "https://sudodev.ankushsingh.tech",
-    href: "/",
-    origin: "https://sudodev.ankushsingh.tech",
-    password: "SudoDev",
-    hash: "SudoDev",
-    pathname: "/",
-    search: "",
-    username: "SudoDev",
-    hostname: "ankushingh.tech",
-    port: "",
-    protocol: "https:",
-    searchParams: new URLSearchParams(""),
-    toString: () => "https://sudodev.ankushsingh.tech",
-    toJSON: () => "https://sudodev.ankushsingh.tech",
-  },
+  keywords: ["SudoDev", "SDKs", "Software Development", "API", "Developer Tools"],
+
+
   twitter: {
     card: "summary_large_image",
-    site: "https://sudodev.ankushsingh.tech",
-    creator: "https://sudodev.ankushsingh.tech",
+    creator: "@whyankush07",
     title: "SudoDev - Get rid of SDK's and just focus on development.",
-    description:
-      "Get rid of using the same code again and again. We have built SDK's for you for you so that you can just focus on developing projects. Just make an API call and let us handle the rest.",
+    description: "Get rid of SDK's and just focus on development.",
     images: [
       {
         url: "https://sudodev.ankushsingh.tech/landing.png",
@@ -68,7 +43,25 @@ export const metadata: Metadata = {
       },
     ],
   },
+
+  openGraph: {
+    url: "https://sudodev.ankushsingh.tech",
+    title: "SudoDev - Get rid of SDK's and just focus on development.",
+    description: "We build SDK's so you can focus on development. Just make an API call and let us handle the rest.",
+    images: [
+      {
+        url: "https://sudodev.ankushsingh.tech/landing.png",
+        width: 1200,
+        height: 627,
+        alt: "SudoDev - Official Site",
+      },
+    ],
+  },
+
   manifest: "/manifest.webmanifest",
+
+  metadataBase: new URL("https://sudodev.ankushsingh.tech"),
+
 };
 
 
