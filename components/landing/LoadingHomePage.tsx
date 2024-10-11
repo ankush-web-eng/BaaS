@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect } from "react";
-import { HeroVideo } from "./layout/VideoPlayer";
+import { HeroVideo } from "./VideoPlayer";
+import { OrbitingCirclesComponent } from "@/components/layout/CircleIcons";
 
 export default function LazyComponent() {
     const [scrolled, setScrolled] = useState(false);
@@ -26,6 +27,7 @@ export default function LazyComponent() {
             {scrolled ?
                 <>
                     <HeroVideo />
+                    <OrbitingCirclesComponent />
                 </>
                 :
                 <div className="min-h-screen"></div>

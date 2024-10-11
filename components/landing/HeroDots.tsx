@@ -2,7 +2,7 @@
 import { cn } from "@/lib/utils";
 import { DotPattern } from "@/components/magicui/dot-pattern";
 import { FaGolang } from "react-icons/fa6";
-import GetStartedButton from "./Header/GetStartedButton";
+import GetStartedButton from "@/components/layout/Header/GetStartedButton";
 import { useEffect, useState } from "react";
 import { ChevronDown } from "lucide-react";
 

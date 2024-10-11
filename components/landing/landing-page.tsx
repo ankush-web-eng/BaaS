@@ -1,7 +1,7 @@
 'use client';
 import dynamic from "next/dynamic";
-import LandingHeroComponent from "./layout/HeroDots";
-const LazyComponent = dynamic(() => import("@/components/LoadingHomePage"), { ssr: false });
+import LandingHeroComponent from "@/components/landing/HeroDots";
+const LazyComponent = dynamic(() => import("@/components/landing/LoadingHomePage"), { ssr: false });
 
 export default function LandingPage() {
   return (
