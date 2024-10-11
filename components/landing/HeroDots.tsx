@@ -43,10 +43,10 @@ export default function DotPatternDemo() {
             </div>
             {isVisible && (
                 <div
-                    className="fixed bottom-8 right-8 bg-gray-800 dark:bg-gray-200 bg-opacity-20 rounded-full p-2 cursor-pointer transition-all duration-300 hover:scale-110 hover:bg-opacity-30 animate-bounce"
+                    className="fixed bottom-8 right-8 bg-black dark:bg-white bg-opacity-20 rounded-full p-2 cursor-pointer transition-all duration-300 hover:scale-110 hover:bg-opacity-30 animate-bounce"
                     onClick={scrollToBottom}
                 >
-                    <ChevronDown className="text-gray-800 dark:text-gray-200 w-6 h-6" />
+                    <ChevronDown className="text-white dark:text-black w-6 h-6" />
                 </div>
             )}
             <DotPattern

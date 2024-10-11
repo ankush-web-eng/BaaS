@@ -60,7 +60,7 @@ const SlideTabs = () => {
             <Link
                 href="https://github.com/ankush-web-eng/microservice"
                 target="_blank"
-                className="inline-flex gap-x-2 justify-start items-start py-3 px-5 ml-3 w-full rounded-3xl border duration-200 sm:w-auto group bg-black dark:bg-white border-gray-700/30 dark:border-gray-300/20 text-md font-geistSans text-gray-200 dark:text-gray-300 hover:bg-gray-700/60 dark:hover:bg-gray-100/20 hover:text-white dark:hover:text-gray-100"
+                className="inline-flex gap-x-2 justify-start items-start py-3 px-5 ml-3 w-full rounded-3xl border duration-200 sm:w-auto group bg-black dark:bg-white border-gray-700/30 dark:border-gray-300/20 text-md font-geistSans text-gray-200 dark:text-black hover:bg-gray-700/60 dark:hover:bg-gray-100/20 hover:text-white dark:hover:text-gray-100"
             >
                 Github
                 <div className="flex overflow-hidden relative justify-center items-center ml-1 w-5 h-5">

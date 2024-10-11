@@ -22,7 +22,7 @@ export function HeroVideo() {
             <DotPattern
                 className={cn(
                     "absolute inset-0 h-full w-full",
-                    "text-gray-300 dark:text-gray-700 opacity-30"
+                    "text-gray-300 dark:text-gray-700 opacity-30 -z-10"
                 )}
             />
         </div>

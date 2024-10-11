@@ -1,5 +1,3 @@
-// import ApiKey from "@/components/dash/apikey";
-import ApiKey from "@/components/dash/apikey";
 import CloudinaryCredentials from "@/components/dash/cloudinary";
 import MailCredentials from "@/components/dash/mail";
 import { Metadata } from "next";
@@ -18,7 +16,6 @@ export default function Page() {
                 <CloudinaryCredentials />
                 <MailCredentials />
             </div>
-            <ApiKey />
         </div>
     )
 }

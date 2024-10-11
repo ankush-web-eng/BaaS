@@ -11,7 +11,7 @@ export default function GetStartedButton() {
     return (
         <Link
             href={session ? "/dashboard" : "/signin"}
-            className="inline-flex gap-x-2 justify-start items-start px-5 ml-3 max-md:w-fit rounded-3xl duration-200 sm:w-auto group bg-page-gradient border-white/30 text-md font-geistSans hover:border-zinc-600 hover:bg-transparent/10 hover:text-zinc-100"
+            className="inline-flex gap-x-2 justify-start items-start px-5 ml-3 max-md:w-fit rounded-3xl duration-200 sm:w-auto group bg-page-gradient border-white/30 text-md font-geistSans hover:border-zinc-600 hover:text-zinc-100"
         >
                 <ShimmerButton className="shadow-2xl">
                     <div className="whitespace-pre-wrap flex items-center space-x-2 text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg">
