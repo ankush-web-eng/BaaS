@@ -1,4 +1,3 @@
-'use client';
 import { cn } from "@/lib/utils";
 import { DotPattern } from "@/components/magicui/dot-pattern";
 import { FaGolang } from "react-icons/fa6";
@@ -6,7 +5,7 @@ import GetStartedButton from "@/components/layout/Header/GetStartedButton";
 import { useEffect, useState } from "react";
 import { ChevronDown } from "lucide-react";
 
-export default function LandingHeroComponent() {
+export default function DotPatternDemo() {
     const [isVisible, setIsVisible] = useState(true);
 
     useEffect(() => {
@@ -26,7 +25,7 @@ export default function LandingHeroComponent() {
     };
 
     return (
-        <div className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-white dark:from-gray-900 dark:to-black">
+        <div className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-white dark:bg-black">
             <div className="p-4 max-w-7xl mx-auto relative z-10 w-full pt-20 md:pt-0">
                 <h1 className="text-4xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-gray-900 to-gray-600 dark:from-gray-100 dark:to-gray-400">
                     Get rid of SDK&apos;s <br /> and just focus on development.
@@ -52,8 +51,8 @@ export default function LandingHeroComponent() {
             )}
             <DotPattern
                 className={cn(
-                    "[mask-image:radial-gradient(300px_circle_at_center,white,transparent)]",
-                    "text-gray-300 dark:text-gray-700"
+                    "absolute inset-0 h-full w-full",
+                    "text-gray-300 dark:text-gray-700 opacity-30"
                 )}
             />
         </div>

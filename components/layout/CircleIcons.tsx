@@ -1,5 +1,7 @@
 import React from 'react';
 import OrbitingCircles from "@/components/magicui/orbiting-circles";
+import { cn } from "@/lib/utils";
+import { DotPattern } from "@/components/magicui/dot-pattern";
 
 export function OrbitingCirclesComponent() {
   return (
@@ -44,6 +46,12 @@ export function OrbitingCirclesComponent() {
       >
         <Icons.gitHub />
       </OrbitingCircles>
+      <DotPattern
+                className={cn(
+                    "absolute inset-0 h-full w-full",
+                    "text-gray-300 dark:text-gray-700 opacity-30"
+                )}
+            />
     </div>
   );
 }

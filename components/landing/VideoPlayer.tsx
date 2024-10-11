@@ -1,4 +1,6 @@
 import HeroVideoDialog from "@/components/magicui/hero-video-dialog";
+import { cn } from "@/lib/utils";
+import { DotPattern } from "@/components/magicui/dot-pattern";
 
 export function HeroVideo() {
     return (
@@ -16,6 +18,12 @@ export function HeroVideo() {
                 videoSrc="https://www.youtube.com/embed/gGhcjKgid4A?si=QY5HNbEykyi7gTfS"
                 thumbnailSrc="https://sudodev.ankushsingh.tech/og-image.png"
                 thumbnailAlt="Hero Video"
+            />
+            <DotPattern
+                className={cn(
+                    "absolute inset-0 h-full w-full",
+                    "text-gray-300 dark:text-gray-700 opacity-30"
+                )}
             />
         </div>
     );
