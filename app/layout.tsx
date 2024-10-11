@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   description: "Get rid of SDK's and just focus on development.",
 
-  keywords: ["SudoDev", "SDKs", "Software Development", "API", "Developer Tools"],
+  keywords: ["SudoDev", "SDKs", "Software Development", "API", "Developer Tools", "Ankush Singh", "Ankush's World"],
 
 
   twitter: {
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     description: "Get rid of SDK's and just focus on development.",
     images: [
       {
-        url: "https://sudodev.ankushsingh.tech/landing.png",
+        url: "https://sudodev.ankushsingh.tech/og-image.png",
         width: 1200,
         height: 627,
         alt: "SudoDev - Get rid of SDK's and just focus on development.",
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     description: "We build SDK's so you can focus on development. Just make an API call and let us handle the rest.",
     images: [
       {
-        url: "https://sudodev.ankushsingh.tech/landing.png",
+        url: "https://sudodev.ankushsingh.tech/og-image.png",
         width: 1200,
         height: 627,
         alt: "SudoDev - Official Site",

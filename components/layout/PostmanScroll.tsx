@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export function PostmanScroll() {
   return (
-    <div className="flex flex-col overflow-hidden bg-black">
+    <div className="flex flex-col overflow-hidden bg-white dark:bg-black">
       <ContainerScroll
         titleComponent={
           <>
@@ -23,7 +23,7 @@ export function PostmanScroll() {
           alt="hero"
           height={720}
           width={1400}
-          className="mx-auto rounded-2xl object-cover h-full object-left-top"
+          className="mx-auto rounded-2xl object-cover h-fit object-left-top"
           draggable={false}
           unoptimized
         />

@@ -1,6 +1,6 @@
 'use client';
 import dynamic from "next/dynamic";
-import SpotlightPreview from "@/components/layout/HeroSection";
+import LandingHeroComponent from "./layout/HeroDots";
 const LazyComponent = dynamic(() => import("@/components/LoadingHomePage"), { ssr: false });
 
 export default function LandingPage() {
@@ -16,7 +16,7 @@ export default function LandingPage() {
           scrollbar-width: none;
         }
       `}</style>
-      <SpotlightPreview />
+      <LandingHeroComponent />
       <LazyComponent />
     </>
   )

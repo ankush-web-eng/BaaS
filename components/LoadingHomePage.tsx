@@ -1,7 +1,6 @@
 'use client';
 import { useState, useEffect } from "react";
-import YouTubeTutorial from "./includes/YoutubeTutorial";
-import { PostmanScroll } from "./layout/PostmanScroll";
+import { HeroVideo } from "./layout/VideoPlayer";
 
 export default function LazyComponent() {
     const [scrolled, setScrolled] = useState(false);
@@ -23,11 +22,10 @@ export default function LazyComponent() {
     }, []);
 
     return (
-        <div className="no-visible-scrollbar mb-8">
+        <div className="bg-white dark:bg-black pb-8">
             {scrolled ?
                 <>
-                    <PostmanScroll />
-                    <YouTubeTutorial />
+                    <HeroVideo />
                 </>
                 :
                 <div className="min-h-screen"></div>
