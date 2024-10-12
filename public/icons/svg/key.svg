@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
-<svg fill="white" stroke-width="1.1" stroke="currentColor" height="800px" width="800px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+<svg stroke-width="1.1" stroke="currentColor" height="800px" width="800px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
 	 viewBox="0 0 512.003 512.003" xml:space="preserve">
 <g>
 	<g>
-		<path d="M480.71,56.397L430.596,6.283c-8.376-8.377-21.958-8.377-30.335,0c-8.377,8.377-8.377,21.959,0,30.335l34.948,34.947
+		<path fill="var(--fill-color, white)" d="M480.71,56.397L430.596,6.283c-8.376-8.377-21.958-8.377-30.335,0c-8.377,8.377-8.377,21.959,0,30.335l34.948,34.947
 			l-12.46,12.46l-14.177-14.177c-8.374-8.377-21.958-8.377-30.335,0c-8.377,8.376-8.377,21.958,0,30.335l14.177,14.177l-12.46,12.46
 			l-34.947-34.947c-8.376-8.376-21.958-8.376-30.335,0c-8.377,8.377-8.377,21.958,0,30.337l34.947,34.947L243.653,263.122
 			c-53.793-39.18-129.789-34.528-178.295,13.978c-53.792,53.79-53.797,140.854,0,194.653
