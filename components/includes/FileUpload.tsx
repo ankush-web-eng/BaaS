@@ -6,7 +6,7 @@ import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "../ui/button";
 import { Upload } from "lucide-react";
-import UploadFileDemoCode from "./file-upload";
+// import UploadFileDemoCode from "./file-upload";
 
 export function FileUploadDemo() {
     const [file, setFile] = useState<File>();
@@ -101,7 +101,7 @@ export function FileUploadDemo() {
                     </CardFooter>
                 </CardContent>
             </Card>
-            <UploadFileDemoCode />
+            {/* <UploadFileDemoCode /> */}
         </div>
     );
 }
