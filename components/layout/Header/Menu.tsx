@@ -1,14 +1,18 @@
 "use client";
 
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React, { useState } from "react";
 import { useKeyPress } from "@/hooks/useKeyPress";
-import Image from "next/image";
-import Link from "next/link";
 import { Dialog } from "@/components/ui/dialog";
 import { signOut } from "next-auth/react";
 import { ModeToggle } from "@/components/ui/ThemeToggle";
+import { FaHome, FaEdit, FaBook, FaKey, FaSignOutAlt } from "react-icons/fa";
 
 function Menu() {
+	const router = usePathname();
+	const [isHovered, setIsHovered] = useState(false);
+
 	useKeyPress("a", () => {
 		if (!dialogOpen) {
 			setDialogOpen(true);
@@ -17,25 +21,25 @@ function Menu() {
 
 	const menuItems = [
 		{
-			icon: "/icons/svg/home.svg",
+			icon: FaHome,
 			text: "Home",
 			url: "/",
 			disabled: false,
 		},
 		{
-			icon: "/icons/svg/edit.svg",
+			icon: FaEdit,
 			text: "Edit",
 			url: "/dashboard/edit",
 			disabled: false,
 		},
 		{
-			icon: "/icons/svg/docs.svg",
+			icon: FaBook,
 			text: "Docs",
 			url: "/docs",
 			disabled: false,
 		},
 		{
-			icon: "/icons/svg/key.svg",
+			icon: FaKey,
 			text: "Apikey",
 			url: "/dashboard/apikey",
 			disabled: false
@@ -44,26 +48,29 @@ function Menu() {
 
 	const [dialogOpen, setDialogOpen] = useState(false);
 
+	const isActive = (url: string) => router === url;
+
 	return (
 		<div>
 			{/* Desktop Menu */}
 			<Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
 				<div className="hidden lg:flex fixed h-screen w-full p-4 items-center top-0 left-0 pointer-events-none z-[39]">
-					<div className="pointer-events-auto text-neutral-700 dark:text-neutral-300 group flex w-14 text-[15px] font-medium flex-col items-start gap-6 overflow-hidden rounded-[28px] dark:bg-[#120c43] bg-neutral-100 px-3 py-4 duration-200 hover:w-40 z-[99999] dark:hover:bg-[#20114d] hover:bg-neutral-200">
+					<div
+						className={`pointer-events-auto text-neutral-700 dark:text-neutral-300 group flex ${isHovered ? 'w-40' : 'w-14'} text-[15px] font-medium flex-col items-start gap-6 overflow-hidden rounded-[28px] dark:bg-[#120c43] bg-neutral-100 px-3 py-4 duration-200 z-[99999] dark:hover:bg-[#20114d] hover:bg-neutral-200`}
+						onMouseEnter={() => setIsHovered(true)}
+						onMouseLeave={() => setIsHovered(false)}
+					>
 						{menuItems.map((item) => (
 							<Link
 								href={item.url}
 								key={item.url}
-								className="flex w-full items-center gap-3 px-1 duration-200 hover:scale-105 active:scale-90 justify-start text-neutral-700 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white cursor-pointer"
+								className={`flex w-full items-center gap-3 px-1 duration-200 hover:scale-105 active:scale-90 justify-start ${isActive(item.url)
+									? "text-blue-600 dark:text-blue-400"
+									: "text-neutral-700 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white"
+									} cursor-pointer`}
 							>
-								<Image
-									src={item.icon as string}
-									alt={`${item.text} icon`}
-									width={24}
-									height={24}
-									className="duration-200 hover:brightness-125"
-								/>
-								<p className="opacity-0 duration-200 group-hover:opacity-100">
+								<item.icon className="w-6 h-6 duration-200 hover:brightness-125 flex-shrink-0" />
+								<p className={`duration-200 ${isHovered ? 'opacity-100' : 'opacity-0'} whitespace-nowrap`}>
 									{item.text}
 								</p>
 							</Link>
@@ -75,14 +82,8 @@ function Menu() {
 								className="flex w-full text-neutral-700 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white cursor-pointer items-center gap-3 px-1 duration-200"
 								onClick={() => signOut()}
 							>
-								<Image
-									src={"/icons/svg/signout.svg"}
-									alt="Signout Logo"
-									width={24}
-									height={24}
-									className="duration-200 hover:brightness-125"
-								/>
-								<p className="opacity-0 duration-200 group-hover:opacity-100">
+								<FaSignOutAlt className="w-6 h-6 duration-200 hover:brightness-125 flex-shrink-0" />
+								<p className={`duration-200 ${isHovered ? 'opacity-100' : 'opacity-0'} whitespace-nowrap`}>
 									Signout
 								</p>
 							</div>
@@ -92,7 +93,7 @@ function Menu() {
 						<div className="pt-2 w-full">
 							<div className="flex w-full cursor-pointer items-center gap-3 px-1 duration-200 justify-start">
 								<ModeToggle />
-								<p className="opacity-0 duration-200 group-hover:opacity-100">
+								<p className={`duration-200 ${isHovered ? 'opacity-100' : 'opacity-0'} whitespace-nowrap`}>
 									Theme
 								</p>
 							</div>
@@ -111,16 +112,13 @@ function Menu() {
 								className={`flex flex-col items-center ${item.disabled
 									? "opacity-50 cursor-not-allowed"
 									: "cursor-pointer"
+									} ${isActive(item.url)
+										? "text-blue-600 dark:text-blue-400"
+										: ""
 									}`}
 								onClick={(e) => item.disabled && e.preventDefault()}
 							>
-								<Image
-									src={item.icon as string}
-									alt={`${item.text} icon`}
-									width={24}
-									height={24}
-									className="brightness-100"
-								/>
+								<item.icon className="w-6 h-6" />
 								<p className="text-xs mt-2">{item.text}</p>
 							</Link>
 						))}
@@ -131,12 +129,7 @@ function Menu() {
 							className="flex flex-col items-center cursor-pointer"
 							onClick={() => signOut()}
 						>
-							<Image
-								src={"/icons/svg/signout.svg"}
-								alt="Signout icon"
-								width={24}
-								height={24}
-							/>
+							<FaSignOutAlt className="w-6 h-6" />
 							<p className="text-xs mt-2">Signout</p>
 						</Link>
 
