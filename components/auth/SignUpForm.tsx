@@ -60,7 +60,7 @@ export function SignupForm() {
     }
 
     return (
-        <div className="min-h-screen flex justify-center items-center">
+        <div className="min-h-screen flex justify-center items-center bg-white dark:bg-black">
             <div className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-2xl bg-white dark:bg-black shadow-blue-950">
                 <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">
                     Welcome to SudoDev
