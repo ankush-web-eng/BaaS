@@ -52,6 +52,11 @@ const SlideTabs = () => {
                 </Link>
             </Tab>
             <Tab setPosition={setPosition}>
+                <Link className="w-full h-full" href="https://youtu.be/b9eCU5EofBI">
+                    About Sudodev
+                </Link>
+            </Tab>
+            <Tab setPosition={setPosition}>
                 <button onClick={handleAuth} className="w-full h-full">
                     {session ? "Logout" : "Login"}
                 </button>
