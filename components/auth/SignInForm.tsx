@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import { RiLoader2Line } from "react-icons/ri";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { IconBrandGoogle } from "@tabler/icons-react";
+// import { IconBrandGoogle } from "@tabler/icons-react";
 import { signIn } from "next-auth/react";
 
 type SigninFormData = {
@@ -114,7 +114,7 @@ export function SigninForm() {
                     <div className="bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent my-8 h-[1px] w-full" />
 
 
-                    <div className="flex flex-col space-y-4 mb-3 justify-center">
+                    {/* <div className="flex flex-col space-y-4 mb-3 justify-center">
                         <button
                             className=" relative group/btn flex space-x-2 items-center justify-center px-4 w-full text-black rounded-md h-10 font-medium shadow-input bg-gray-50 dark:bg-zinc-900 dark:shadow-[0px_0px_1px_1px_var(--neutral-800)]"
                             type="button"
@@ -126,7 +126,7 @@ export function SigninForm() {
                             </span>
                             <BottomGradient />
                         </button>
-                    </div>
+                    </div> */}
 
                     <div className="flex w-full items-center justify-center mt-3">
                         <Link href={'/signup'} className="text-slate-500 hover:text-slate-300">New user? Signup here</Link>
